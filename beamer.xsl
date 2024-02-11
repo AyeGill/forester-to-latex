@@ -2,7 +2,7 @@
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:output method="text" encoding="utf-8" indent="yes" doctype-public="" doctype-system="" />
+	<xsl:output method="text" encoding="utf-8" indent="no" doctype-public="" doctype-system="" />
 	<xsl:template match="/">
 		<xsl:text>\documentclass[fleqn]{beamer}</xsl:text>
 		<xsl:text>\usepackage[final]{microtype}</xsl:text>
