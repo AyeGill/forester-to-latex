@@ -7,7 +7,7 @@
 		<xsl:text>\documentclass[fleqn]{beamer}</xsl:text>
 		<xsl:text>\usepackage[final]{microtype}</xsl:text>
 		<xsl:text>\usepackage{mathtools}</xsl:text>
-		<xsl:text>\usepackage{xcolor,libertine}</xsl:text>
+		<xsl:text>\usepackage{xcolor,libertine,stmaryrd}</xsl:text>
 		<xsl:text>\hypersetup{colorlinks=true,linkcolor={blue!30!black}}</xsl:text>
 		<xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
 		<xsl:text>\setlength{\parskip}{0.8\baselineskip}</xsl:text>
@@ -34,9 +34,9 @@
 		<xsl:apply-templates select="/tree/backmatter/references" />
 		<xsl:text>\frame{\titlepage}</xsl:text>
 		<xsl:apply-templates select="/tree/mainmatter" />
-		<!-- <xsl:text>\nocite{*}</xsl:text> -->
-		<!-- <xsl:text>\bibliographystyle{plain}</xsl:text> -->
-		<!-- <xsl:text>\bibliography{\jobname.bib}</xsl:text> -->
+		<xsl:text>\nocite{*}</xsl:text>
+		<xsl:text>\bibliographystyle{plain}</xsl:text>
+		<xsl:text>\begin{frame}[allowframebreaks]\bibliography{\jobname.bib}\end{frame}</xsl:text>
 		<xsl:text>\end{document}</xsl:text>
 	</xsl:template>
 	<xsl:template match="/tree/backmatter/references">
@@ -95,6 +95,11 @@
 	<xsl:template match="pause">
 		<xsl:text>\pause{}</xsl:text>
 	</xsl:template>
+ <xsl:template match="mark">
+  <xsl:text>\alert{</xsl:text>
+   <xsl:apply-templates/>
+  <xsl:text>}</xsl:text>
+ </xsl:template>
 	<xsl:template match="em">
 		<xsl:text>\emph{</xsl:text>
 		<xsl:apply-templates />
