@@ -11,6 +11,7 @@
 		<xsl:text>\hypersetup{colorlinks=true,linkcolor={blue!30!black}}</xsl:text>
 		<xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
 		<xsl:text>\setlength{\parskip}{0.8\baselineskip}</xsl:text>
+  <xsl:text>\setbeamertemplate{frametitle continuation}[from second][(contd.)]</xsl:text>
 		<xsl:apply-templates select="/tree/frontmatter" mode="top" />
 		<xsl:text>\begin{document}</xsl:text>
 		<xsl:for-each select="//embedded-tex[not(ancestor::backmatter)]">
@@ -70,7 +71,7 @@
 		<xsl:text>}</xsl:text>
 	</xsl:template>
 	<xsl:template match="tree[frontmatter/taxon[text()='Slide']]">
-		<xsl:text>\begin{frame}</xsl:text>
+		<xsl:text>\begin{frame}[allowframebreaks]</xsl:text>
 		<xsl:apply-templates select="frontmatter" mode="frame"/>
 		<xsl:apply-templates select="mainmatter"/>
 		<xsl:text>\end{frame}</xsl:text>
