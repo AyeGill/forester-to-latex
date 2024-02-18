@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- SPDX-License-Identifier: CC0-1.0 -->
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="text" encoding="utf-8" indent="yes" doctype-public="" doctype-system="" />
 	<xsl:template match="/">
@@ -23,6 +23,8 @@
 		<xsl:text>\newtheorem{exercise}{Exercise}</xsl:text>
 		<xsl:text>\usepackage{newtxmath,newtxtext}</xsl:text>
 		<xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
+		<xsl:text>\setcounter{tocdepth}{5}</xsl:text>
+		<xsl:text>\setcounter{secnumdepth}{5}</xsl:text>
 		<xsl:apply-templates select="/tree/frontmatter" mode="top" />
 		<xsl:text>\begin{document}</xsl:text>
 		<xsl:for-each select="//embedded-tex[not(ancestor::backmatter)]">
