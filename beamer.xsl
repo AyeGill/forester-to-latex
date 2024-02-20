@@ -7,7 +7,7 @@
 		<xsl:text>\documentclass[fleqn]{beamer}</xsl:text>
 		<xsl:text>\usepackage[final]{microtype}</xsl:text>
 		<xsl:text>\usepackage{mathtools}</xsl:text>
-		<xsl:text>\usepackage{xcolor,libertine,stmaryrd}</xsl:text>
+		<xsl:text>\usepackage{xcolor,libertine,stmaryrd,inconsolata}</xsl:text>
 		<xsl:text>\hypersetup{colorlinks=true,linkcolor={blue!30!black}}</xsl:text>
 		<xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
 		<xsl:text>\setlength{\parskip}{0.8\baselineskip}</xsl:text>
