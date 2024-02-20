@@ -71,7 +71,7 @@
 		<xsl:text>}</xsl:text>
 	</xsl:template>
 	<xsl:template match="tree[frontmatter/taxon[text()='Slide']]">
-		<xsl:text>\begin{frame}[allowframebreaks]</xsl:text>
+		<xsl:text>\begin{frame}</xsl:text>
 		<xsl:apply-templates select="frontmatter" mode="frame"/>
 		<xsl:apply-templates select="mainmatter"/>
 		<xsl:text>\end{frame}</xsl:text>
