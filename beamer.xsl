@@ -42,7 +42,7 @@
     </xsl:for-each>
     <xsl:apply-templates select="/f:tree/f:backmatter/f:references" />
     <xsl:text>\frame{\titlepage}</xsl:text>
-    <xsl:apply-templates select="/f:tree/f:mainmatter" />
+    <xsl:apply-templates select="/f:tree/f:mainmatter/f:tree" />
     <xsl:text>\nocite{*}</xsl:text>
     <xsl:text>\bibliographystyle{plain}</xsl:text>
     <xsl:text>\begin{frame}[t,allowframebreaks]\frametitle{Bibliography}\bibliography{\jobname.bib}\end{frame}</xsl:text>
@@ -219,7 +219,7 @@
     <xsl:apply-templates/>
     <xsl:text>}</xsl:text>
   </xsl:template>
-  
+
   <xsl:template match="indenting:row">
     <xsl:text>\row{</xsl:text>
     <xsl:apply-templates/>
