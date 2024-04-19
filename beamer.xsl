@@ -71,6 +71,9 @@
       </xsl:if>
     </xsl:for-each>
     <xsl:text>}</xsl:text>
+    <xsl:for-each select="f:meta[@name='beamer-preamble']">
+     <xsl:value-of select="."/>
+    </xsl:for-each>
   </xsl:template>
 
   <xsl:template match="f:frontmatter" mode="frame">
