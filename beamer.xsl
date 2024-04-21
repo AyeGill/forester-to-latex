@@ -201,12 +201,6 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="f:block">
-    <xsl:text>\begin{proof}</xsl:text>
-    <xsl:apply-templates />
-    <xsl:text>\end{proof}</xsl:text>
-  </xsl:template>
-
   <xsl:template match="f:headline" />
 
   <xsl:template match="f:embedded-tex">
