@@ -5,7 +5,7 @@
   xmlns:f="http://www.jonmsterling.com/jms-005P.xml">
 
   <xsl:output method="text" encoding="utf-8" indent="yes" doctype-public="" doctype-system="" />
-  
+
   <xsl:template match="/">
     <xsl:text>\documentclass[oneside,a4paper]{book}</xsl:text>
     <xsl:text>\usepackage[final]{microtype}</xsl:text>
@@ -110,11 +110,18 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
 
+  <xsl:template match="f:frontmatter/f:addr[@type='user']" mode="label">
+   <xsl:text>\label{</xsl:text>
+    <xsl:apply-templates />
+   <xsl:text>}</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="f:frontmatter/f:addr[@type='machine']" mode="label">
+  </xsl:template>
+
   <xsl:template match="f:tree[not(f:frontmatter/f:taxon)]">
     <xsl:apply-templates select="f:frontmatter/f:title" />
-    <xsl:text>\label{</xsl:text>
-    <xsl:value-of select="f:frontmatter/f:addr" />
-    <xsl:text>}</xsl:text>
+    <xsl:apply-templates select="f:frontmatter/f:addr" mode="label" />
     <xsl:apply-templates select="f:mainmatter" />
   </xsl:template>
 
@@ -170,9 +177,7 @@
     <xsl:text>}[{</xsl:text>
     <xsl:apply-templates select="f:frontmatter/f:title" />
     <xsl:text>}]</xsl:text>
-    <xsl:text>\label{</xsl:text>
-    <xsl:value-of select="f:frontmatter/f:addr" />
-    <xsl:text>}</xsl:text>
+    <xsl:apply-templates select="f:frontmatter/f:addr" mode="label" />
     <xsl:apply-templates select="f:mainmatter" />
     <xsl:text>\end{</xsl:text>
     <xsl:apply-templates select="f:frontmatter/f:taxon" />
