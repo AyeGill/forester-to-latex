@@ -52,7 +52,14 @@
       <xsl:text>&#xa;</xsl:text>
     </xsl:for-each>
 
-    <xsl:apply-templates select="/f:tree/f:backmatter/f:references" />
+    <xsl:text>&#xa;</xsl:text>
+    <xsl:text>\begin{filecontents*}[overwrite]{\jobname.bib}</xsl:text>
+    <xsl:text>&#xa;</xsl:text>
+    <xsl:apply-templates select="/f:tree/f:backmatter//f:tree/f:frontmatter[f:taxon[text()='Reference']]/f:meta[@name='bibtex']" />
+    <xsl:text>&#xa;</xsl:text>
+    <xsl:text>\end{filecontents*}</xsl:text>
+    <xsl:text>&#xa;</xsl:text>
+
     <xsl:text>\frontmatter\maketitle\tableofcontents\mainmatter</xsl:text>
     <xsl:apply-templates select="/f:tree/f:mainmatter" />
     <xsl:text>\backmatter</xsl:text>
@@ -60,16 +67,6 @@
     <xsl:text>\bibliographystyle{plain}</xsl:text>
     <xsl:text>\bibliography{\jobname.bib}</xsl:text>
     <xsl:text>\end{document}</xsl:text>
-  </xsl:template>
-
-  <xsl:template match="/f:tree/f:backmatter/f:references">
-    <xsl:text>&#xa;</xsl:text>
-    <xsl:text>\begin{filecontents*}[overwrite]{\jobname.bib}</xsl:text>
-    <xsl:text>&#xa;</xsl:text>
-    <xsl:apply-templates select="f:tree/f:frontmatter/f:meta[@name='bibtex']" />
-    <xsl:text>&#xa;</xsl:text>
-    <xsl:text>\end{filecontents*}</xsl:text>
-    <xsl:text>&#xa;</xsl:text>
   </xsl:template>
 
   <xsl:template match="f:frontmatter" mode="top">
@@ -263,7 +260,7 @@
         <xsl:apply-templates />
         <xsl:text>}</xsl:text>
       </xsl:when>
-      <xsl:when test="/f:tree/f:backmatter/f:references/f:tree/f:frontmatter[f:addr/text()=current()/@addr]">
+      <xsl:when test="/f:tree/f:backmatter//f:tree[f:frontmatter[f:taxon[text()='Reference'] and f:addr[text()=current()/@addr]]]">
         <xsl:apply-templates />
         <xsl:text>~\cite{</xsl:text>
         <xsl:value-of select="@addr" />
