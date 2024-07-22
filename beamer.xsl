@@ -12,7 +12,7 @@
   <xsl:template match="/">
     <xsl:text>\documentclass[fleqn]{beamer}</xsl:text>
     <xsl:text>\usepackage[final]{microtype}</xsl:text>
-    <xsl:text>\usepackage{mathtools}</xsl:text>
+    <xsl:text>\usepackage{mathtools,quiver}</xsl:text>
     <xsl:text>\usepackage{iblock}</xsl:text>
     <xsl:text>\usepackage{xcolor,libertine,stmaryrd,inconsolata}</xsl:text>
     <xsl:text>\hypersetup{colorlinks=true,linkcolor={blue!30!black}}</xsl:text>
