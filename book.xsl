@@ -127,12 +127,21 @@
     <xsl:text>definition</xsl:text>
   </xsl:template>
 
+  <xsl:template match="f:taxon[text()='Proof']">
+    <xsl:text>proof</xsl:text>
+  </xsl:template>
+
   <xsl:template match="f:taxon[text()='Theorem']">
     <xsl:text>theorem</xsl:text>
   </xsl:template>
 
   <xsl:template match="f:taxon[text()='Lemma']">
     <xsl:text>lemma</xsl:text>
+  </xsl:template>
+
+
+  <xsl:template match="f:taxon[text()='Proposition']">
+    <xsl:text>proposition</xsl:text>
   </xsl:template>
 
   <xsl:template match="f:taxon[text()='Construction']">
