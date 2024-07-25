@@ -19,6 +19,7 @@
     <xsl:text>\newtheorem{proposition}[theorem]{Proposition}</xsl:text>
     <xsl:text>\newtheorem{axiom}[theorem]{Axiom}</xsl:text>
     <xsl:text>\newtheorem{corollary}[theorem]{Corollary}</xsl:text>
+    <xsl:text>\newtheorem{remark}[theorem]{Remark}</xsl:text>
     <xsl:text>\theoremstyle{definition}</xsl:text>
     <xsl:text>\newtheorem{definition}[theorem]{Definition}</xsl:text>
     <xsl:text>\newtheorem{construction}[theorem]{Construction}</xsl:text>
@@ -108,7 +109,7 @@
     <xsl:text>}</xsl:text>
   </xsl:template>
 
-  <xsl:template match="f:frontmatter/f:addr[@type='user']" mode="label">
+  <xsl:template match="f:frontmatter/f:addr" mode="label">
    <xsl:text>\label{</xsl:text>
     <xsl:apply-templates />
    <xsl:text>}</xsl:text>
@@ -154,6 +155,10 @@
 
   <xsl:template match="f:taxon[text()='Convention']">
     <xsl:text>convention</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="f:taxon[text()='Remark']">
+    <xsl:text>remark</xsl:text>
   </xsl:template>
 
   <xsl:template match="f:taxon[text()='Corollary']">
