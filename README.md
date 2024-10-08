@@ -12,3 +12,5 @@ Do be warned that compiling this file with `latex` may produce a huge amount of 
 The original version of these files were made by [Jon Sterling](https://www.jonmsterling.com/index.xml). This version contains some edits made by [Eigil Rischel](https://erischel.com).
 
 Most notably I have changed the behaviour of the forester `\ref{}` command. It now outputs `\cite{}` when the linked tree has the `reference` taxon - this is to facilitate writing like this: "See for example [5] for a survey of these results". This can now be produced by the forester code `See for example \ref{lastname-survey-1999} for a survey of these results`.
+
+To make this work, currently, the tree `lastname-survey-1999.tree` needs to contain a bibliography metadata field giving its own id as `lastname-survey-1999` - they are not harmonized automatically.
