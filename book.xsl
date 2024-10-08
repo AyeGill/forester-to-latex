@@ -111,7 +111,7 @@
 
   <xsl:template match="f:frontmatter/f:addr" mode="label">
    <xsl:text>\label{</xsl:text>
-    <xsl:apply-templates />
+    <xsl:value-of select="translate(., '#', '')"/>
    <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -128,8 +128,13 @@
     <xsl:text>definition</xsl:text>
   </xsl:template>
 
+<<<<<<< HEAD
   <xsl:template match="f:taxon[text()='Proof']">
     <xsl:text>proof</xsl:text>
+=======
+  <xsl:template match="f:taxon[text()='Proposition']">
+    <xsl:text>proposition</xsl:text>
+>>>>>>> 625e18d (Fix label naming to add \label{} around labels always, remove # (this is a breaking character in latex))
   </xsl:template>
 
   <xsl:template match="f:taxon[text()='Theorem']">
