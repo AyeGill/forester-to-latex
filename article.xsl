@@ -7,13 +7,13 @@
   <xsl:output method="text" encoding="utf-8" indent="yes" doctype-public="" doctype-system="" />
 
   <xsl:template match="/">
-    <xsl:text>\documentclass[oneside,a4paper]{book}</xsl:text>
+    <xsl:text>\documentclass[oneside,a4paper]{article}</xsl:text>
     <xsl:text>\usepackage[final]{microtype}</xsl:text>
     <xsl:text>\usepackage{amsthm,mathtools,quiver}</xsl:text>
     <!-- <xsl:text>\usepackage[inline]{showlabels}</xsl:text> -->
     <xsl:text>\usepackage{xcolor}</xsl:text>
     <xsl:text>\usepackage[colorlinks=true,linkcolor={blue!30!black}]{hyperref}</xsl:text>
-    <xsl:text>\newtheorem{theorem}{Theorem}[chapter]</xsl:text>
+    <xsl:text>\newtheorem{theorem}{Theorem}[section]</xsl:text>
     <xsl:text>\newtheorem{lemma}[theorem]{Lemma}</xsl:text>
     <xsl:text>\newtheorem{observation}[theorem]{Observation}</xsl:text>
     <xsl:text>\newtheorem{proposition}[theorem]{Proposition}</xsl:text>
@@ -62,9 +62,8 @@
     <xsl:text>\end{filecontents*}</xsl:text>
     <xsl:text>&#xa;</xsl:text>
 
-    <xsl:text>\frontmatter\maketitle\tableofcontents\mainmatter</xsl:text>
+    <xsl:text>\maketitle\tableofcontents</xsl:text>
     <xsl:apply-templates select="/f:tree/f:mainmatter" />
-    <xsl:text>\backmatter</xsl:text>
     <xsl:text>\nocite{*}</xsl:text>
     <xsl:text>\bibliographystyle{plain}</xsl:text>
     <xsl:text>\bibliography{\jobname.bib}</xsl:text>
@@ -86,25 +85,25 @@
   </xsl:template>
 
   <xsl:template match="/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
-    <xsl:text>\chapter{</xsl:text>
-    <xsl:apply-templates />
-    <xsl:text>}</xsl:text>
-  </xsl:template>
-
-  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
     <xsl:text>\section{</xsl:text>
     <xsl:apply-templates />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
-  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
+  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
     <xsl:text>\subsection{</xsl:text>
     <xsl:apply-templates />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
-  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
+  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
     <xsl:text>\subsubsection{</xsl:text>
+    <xsl:apply-templates />
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree/f:mainmatter/f:tree[not(f:frontmatter/f:taxon)]/f:frontmatter/f:title">
+    <xsl:text>\paragraph{</xsl:text>
     <xsl:apply-templates />
     <xsl:text>}</xsl:text>
   </xsl:template>
