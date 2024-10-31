@@ -15,10 +15,15 @@ Most notably I have changed the behaviour of the forester `\ref{}` command. It n
 
 To make this work, currently, the tree `lastname-survey-1999.tree` needs to contain a bibliography metadata field giving its own id as `lastname-survey-1999` - they are not harmonized automatically.
 
+Currently I have not updated anything in `beamer.xsl`, as such it is probably broken given the changes that have happened to the forester xml format in the meantime.
+
+`article.xsl` is a duplicate of `book.xsl` with `\chapter` replaced by `\section` and so forth. The massive amount of code duplication implied by this is unfortunate but I don't currently know how to fix it.
+
 ## Notes for use
 - As noted above, the `\ref{...}` command, when the referenced tree has the `reference` taxon, produces `\cite{}`. To make this work, make sure the reference has the `\meta{bib}{...}` field set, and that the included bibtex entry has the same id as the tree.
 - To produce `\begin{proof}`, give your tree the `proof` taxon.
-- `book.xsl` outputs a latex document with "Chapter" as the higher-level subdivision. Currently there is no way to change this.
+- `book.xsl` outputs a latex document with "Chapter" as the highest-level subdivision. `article.xsl` is an article version of this (with "Section" as the highest level). The article version is currently mostly untested.
 - See `book.xsl` for the hardcoded list of semantically meaningful taxons (`\taxon{theorem}` produces `\begin{theorem}`, etc)
 - If you experience a problem, make sure to delete all the latex, `.aux`, `.bib`, etc, files and try over.
 - Running `pdflatex` produces a huge amount of noise in the current directory, be forewarned.
+- The handling of included figures (includng included tex figures) has been updated in a hacky and untested manner to work with the new xml format in Forester 4.3.1, be forewarned!
