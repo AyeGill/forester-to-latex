@@ -30,6 +30,8 @@
     <xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
     <xsl:text>\setcounter{tocdepth}{5}</xsl:text>
     <xsl:text>\setcounter{secnumdepth}{5}</xsl:text>
+    <xsl:text>\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}</xsl:text>
+    <xsl:text>\addbibresource{\jobname.bib}</xsl:text>
 
     <xsl:apply-templates select="/f:tree/f:frontmatter" mode="top" />
 
@@ -66,8 +68,7 @@
     <xsl:apply-templates select="/f:tree/f:mainmatter" />
     <xsl:text>\backmatter</xsl:text>
     <xsl:text>\nocite{*}</xsl:text>
-    <xsl:text>\bibliographystyle{plain}</xsl:text>
-    <xsl:text>\bibliography{\jobname.bib}</xsl:text>
+    <xsl:text>\printbibliography</xsl:text>
     <xsl:text>\end{document}</xsl:text>
   </xsl:template>
 
