@@ -19,13 +19,13 @@
     <xsl:text>\newtheorem{proposition}[theorem]{Proposition}</xsl:text>
     <xsl:text>\newtheorem{axiom}[theorem]{Axiom}</xsl:text>
     <xsl:text>\newtheorem{corollary}[theorem]{Corollary}</xsl:text>
-    <xsl:text>\newtheorem{remark}[theorem]{Remark}</xsl:text>
     <xsl:text>\theoremstyle{definition}</xsl:text>
     <xsl:text>\newtheorem{definition}[theorem]{Definition}</xsl:text>
     <xsl:text>\newtheorem{construction}[theorem]{Construction}</xsl:text>
     <xsl:text>\newtheorem{example}[theorem]{Example}</xsl:text>
     <xsl:text>\newtheorem{convention}[theorem]{Convention}</xsl:text>
     <xsl:text>\newtheorem{exercise}{Exercise}</xsl:text>
+    <xsl:text>\newtheorem{remark}[theorem]{Remark}</xsl:text>
     <xsl:text>\usepackage{newtxmath,newtxtext}</xsl:text>
     <xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
     <xsl:text>\setcounter{tocdepth}{5}</xsl:text>
