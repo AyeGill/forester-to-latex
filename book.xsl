@@ -9,11 +9,13 @@
   <xsl:template match="/">
     <xsl:text>\documentclass[oneside,a4paper]{book}</xsl:text>
     <xsl:text>\usepackage[final]{microtype}</xsl:text>
-    <xsl:text>\usepackage{amsthm,mathtools,quiver}</xsl:text>
+    <xsl:text>\usepackage{amsthm,mathtools,quiver,amsfonts,eucal}</xsl:text>
+    <xsl:text>\usepackage[autostyle]{csquotes}</xsl:text>
+    <xsl:text>\MakeOuterQuote{"}</xsl:text>
     <!-- <xsl:text>\usepackage[inline]{showlabels}</xsl:text> -->
     <xsl:text>\usepackage{xcolor}</xsl:text>
     <xsl:text>\usepackage[colorlinks=true,linkcolor={blue!30!black}]{hyperref}</xsl:text>
-    <xsl:text>\newtheorem{theorem}{Theorem}[chapter]</xsl:text>
+    <xsl:text>\newtheorem{theorem}{Theorem}[section]</xsl:text>
     <xsl:text>\newtheorem{lemma}[theorem]{Lemma}</xsl:text>
     <xsl:text>\newtheorem{observation}[theorem]{Observation}</xsl:text>
     <xsl:text>\newtheorem{proposition}[theorem]{Proposition}</xsl:text>
@@ -26,7 +28,7 @@
     <xsl:text>\newtheorem{convention}[theorem]{Convention}</xsl:text>
     <xsl:text>\newtheorem{exercise}{Exercise}</xsl:text>
     <xsl:text>\newtheorem{remark}[theorem]{Remark}</xsl:text>
-    <xsl:text>\usepackage{newtxmath,newtxtext}</xsl:text>
+    <xsl:text>\usepackage{eulerpx,newtxtext}</xsl:text>
     <xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
     <xsl:text>\setcounter{tocdepth}{5}</xsl:text>
     <xsl:text>\setcounter{secnumdepth}{5}</xsl:text>
@@ -180,6 +182,11 @@
 
   <xsl:template match="f:tree[f:frontmatter/f:taxon[text()='Proof']]">
     <xsl:text>\begin{proof}</xsl:text>
+    <xsl:if test="f:frontmatter/f:title">
+      <xsl:text> [</xsl:text>
+      <xsl:apply-templates select="f:frontmatter/f:title" />
+      <xsl:text>]</xsl:text>
+    </xsl:if>
     <xsl:apply-templates select="f:mainmatter" />
     <xsl:text>\end{proof}</xsl:text>
   </xsl:template>
@@ -268,7 +275,7 @@
   </xsl:template>
 
   <xsl:template match="f:ref[not(@taxon)]">
-    <xsl:text>\S~\ref{</xsl:text>
+    <xsl:text>\autoref{</xsl:text>
     <xsl:value-of select="@addr" />
     <xsl:text>}</xsl:text>
   </xsl:template>
