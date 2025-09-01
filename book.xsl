@@ -32,7 +32,7 @@
     <xsl:text>\usepackage[mode=buildmissing]{standalone}</xsl:text>
     <xsl:text>\setcounter{tocdepth}{5}</xsl:text>
     <xsl:text>\setcounter{secnumdepth}{5}</xsl:text>
-    <xsl:text>\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}</xsl:text>
+    <xsl:text>\usepackage[backend=biber,style=alphabetic,sorting=ynt,maxbibnames=6]{biblatex}</xsl:text>
     <xsl:text>\addbibresource{\jobname.bib}</xsl:text>
 
     <xsl:apply-templates select="/f:tree/f:frontmatter" mode="top" />
